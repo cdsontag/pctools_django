@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HST Program Information</title>
+
+    <!-- This script is for compatibility with the HST public website. It has no effect if this page is loaded from some location other than the HST website.
+      -->
+    <script src="https://www.stsci.edu/modules/stsci-www-components/javascript/pinfo.js"></script>
+    
+  </head>
+  <body bgcolor="#ffffff">
+
+    <!-- Header is made up of two separate images. Be careful not to add any spaces between the images.
+      -->
+    <pre><a href="http://www.stsci.edu/cgi-bin/imagemap/logo.map"><img src="http://www.stsci.edu/ops/images/STScI_logo_1.png" width="180" height="100" border="0" usemap="#logo" ismap alt="STScI logo"></a><img width=180 height=100 src="https://www.stsci.edu/public/propinfo.gif" alt="HST Program Information"></pre>
+
+    <!-- MAPS used for client-side imagemaps. imagemap not installed inside firewall
+      -->
+    <map name="logo">
+      <area href="http://www.stsci.edu/top.html" COORDS="1,1,999,999">
+    </map>
+
+    <h2>HST Program Information</h2>
+    <p>To obtain information about a specific program, enter the <b>Program ID</b> or the <b>Investigator's Name</b> and hit one of the buttons to the right of the entry box.</p>
+    <p>When entering an investigator's name, either just the <b>LAST</b> name or both the <b>FIRST</b> and <b>LAST</b> name may be specified.
+    </p>
+
+    <!-- Get QUERY_STRING
+      -->
+    <script>var qstring = window.location.search;</script>
+
+    <p>
+      <form method="post" action="{% url 'propinfo:detail' %}">
+      {% csrf_token %}
+
+   <b>Program ID: </b>
+   <input type="text" name="id" size="6">
+   <input type="submit" value="Get Program Information">
+   <input type="reset" value="Clear Field">
+
+   <!-- Data to be passed to the next CGI script.
+     -->
+   <input type="hidden" name="observatory" value="HST">
+
+   <!-- Look for the pi=1 agrument passed into this script. If found, pass it on to the next CGI script.
+     -->
+   <script>if (qstring.indexOf("pi=1") > 0) {document.write('<input type="hidden" name="pi" value="1">'); }</script>
+   
+<p></p>
+      </form>
+      <form method="get" zzzzaction="/cgi-bin/search-investigator-name">
+   <table>
+     <tr>
+       <td><b>Investigator: </b></td>
+       <td><input type="text" name="investigatorFirstName"></td>
+       <td><input type="text" name="investigatorLastName"></td>
+       <td><input type="submit" value="Find PI Programs" name="piOnly"></td>
+       <td><input type="submit" value="Find PI and CoI Programs" name="piAndCoi"></td>
+       <td><input type="reset" value="Clear Fields"></td>
+     </tr>
+     <tr>
+       <td/>
+       <td style="text-align:center">First Name</td>
+       <td style="text-align:center">Last Name</td>
+       <td/>
+       <td/>
+       <td/>
+     </tr>
+   </table>
+
+   <!-- Data to be passed to the next CGI script.
+     -->
+   <input type="hidden" name="observatory" value="HST">
+
+   <!-- Look for the pi=1 agrument passed into this script. If found, pass it on to the next CGI script.
+     -->
+   <script>if (qstring.indexOf("pi=1") > 0) {document.write('<input type="hidden" name="pi" value="1">'); }</script>
+
+      </form>
+    </p>
+  </body>
+</html>

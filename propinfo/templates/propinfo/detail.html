@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex">
+<title>{{ proposal_id }} Program Information</title>
+<style type="text/css">td.nowrap {white-space:nowrap;}</style>
+</head>
+<body>
+<img src="https://www.stsci.edu/public/HST_banner.gif" alt="HSTbanner">
+<h1>
+<a href="https://www.stsci.edu/public/help/proposal-help-HST.html#prop_type"> {{ proposal_type }} </a> {{ proposal_id }}
+</h1>
+<h4> {{ request_date }} </h4>
+<p><b>Principal Investigator:</b> {{ proposal_pi }} <br>
+<b>PI Institution:</b> {{ proposal_pi_inst }} <br>
+<b><a href="https://www.stsci.edu/cgi-bin/get-address-info?id={{ proposal_id }}&amp;markupFormat=html&amp;observatory=HST">Investigators</a></b>
+<font size="2"><a href="https://www.stsci.edu/cgi-bin/get-address-info?id={{ proposal_id }}&amp;markupFormat=xml&amp;observatory=HST" download="HST-{{ proposal_id }}-investigators.xml">(xml)</a></font></p>
+<p><b>Title:</b> {{ proposal_title }} <br>
+<b>Cycle:</b> {{ proposal_cycle }} <br>
+<b>Allocation:</b> {{ proposal_allocation }}<br>
+<b>Proprietary Period:</b> {{ proposal_proprietary_period }}</p>
+
+<p><b>Program Status:</b> <a href="https://www.stsci.edu/public/help/proposal-help-HST.html#implementation">Implementation</a></p>
+<p><b><a href="https://www.stsci.edu/public/help/proposal-help-HST.html#contacts">Program Coordinator:</a></b>
+{{ proposal_pc_info.name }}
+<a href="mailto:{{ proposal_pc_info.email }}">{{ proposal_pc_info.email }}</a>
+{{ proposal_pc_info.tele }}</p>
+
+<h2>Program Contents</h2>
+<ul>
+<li><a href="https://www.stsci.edu/hst/phase2-public/{{ proposal_id }}.apt">Phase 2 File</a></li>
+<li><a href="https://www.stsci.edu/hst/phase2-public/{{ proposal_id }}.pro">Formatted Listing</a></li>
+<li><a href="http://archive.stsci.edu/proposal_search.php?mission=hst&amp;id={{ proposal_id }}">HST Archive Information</a></li>
+</ul>
+
+<p><font size="5"><b><a href="https://www.stsci.edu/cgi-bin/get-visit-status?id={{ proposal_id }}&amp;markupFormat=html&amp;observatory=HST">Visit Status Information</a></b></font>
+<font size="2"><a href="https://www.stsci.edu/cgi-bin/get-visit-status?id={{ proposal_id }}&amp;markupFormat=xml&amp;observatory=HST" download="HST-{{ proposal_id }}-visit-status.xml">(xml)</a></font></p>
+
+<h2>Requests</h2>
+<ul>
+<li><a href="https://www.stsci.edu/cgi-bin/change-instructions?observatory=HST&amp;program={{ proposal_id }}&amp;requestType=change">Request an observing change.</a></li>
+<li><a href="https://www.stsci.edu/cgi-bin/problem-form?observatory=HST&amp;program={{ proposal_id }}&amp;requestType=duplication">Report a duplication of an observation in this program by another HST program.</a></li>
+</ul>
+</body></html>
