@@ -14,6 +14,7 @@ def index(request):
                <h2>Just a starter page - not intended for public use</h2>
                <ul>
                   <li><a href="https://grit.stsci.edu/observing-program-implementation/pctools/-/tree/master/">Grit</a>
+                  <li><a href="https://github.com/cdsontag/pctools_django">the demo code</a>
                   <li><a href="https://www.stsci.edu/public/propinfo.html">real Program Information page</a>
                   <li><a href="propinfo">demo Program Information page</a> (in Django terms this is our propinfo "app")
                </ul>
